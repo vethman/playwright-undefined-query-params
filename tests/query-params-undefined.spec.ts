@@ -51,11 +51,14 @@ async function getRequestExampleWith_Fix(params?: {
   isbn?: string;
   page?: number;
 }): Promise<APIResponse> {
+  // FIX
+  // would be nice if this was under the hood for the get/post/put/patch/delete methods
   if (params) {
     params = Object.fromEntries(
       Object.entries(params).filter(([_, value]) => value !== undefined)
     );
   }
+  // FIX
 
   const requestContext = await request.newContext({
     baseURL: "https://example.com/api/getText",
